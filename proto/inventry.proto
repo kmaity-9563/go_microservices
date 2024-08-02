@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package inventory;
+
+option go_package = "github.com/kmaity-9563/shopping-app/proto/inventorypb";
+
+service InventoryService {
+  rpc UpdateStock(UpdateStockReq) returns (UpdateStockRes);
+  rpc GetStock(GetStockReq) returns (GetStockRes);
+}
+
+message UpdateStockReq {
+  string productId = 1;
+  int32 quantity = 2;
+}
+
+message UpdateStockRes {
+  string productId = 1;
+  int32 quantity = 2;
+}
+
+message GetStockReq {
+  string productId = 1;
+}
+
+message GetStockRes {
+  string productId = 1;
+  int32 quantity = 2;
+}

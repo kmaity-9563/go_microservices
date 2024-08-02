@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+package payment;
+
+option go_package = "github.com/kmaity-9563/shopping-app/proto/paymentpb";
+
+service PaymentService {
+  rpc createPayment(CreatePaymentReq) returns (CreatePaymentRes);
+  rpc getPayment(GetPaymentReq) returns (GetPaymentRes);
+  rpc cancelPayment(CancelPaymentReq) returns (cancelPaymentRes);
+}
+
+message Payment {
+  string orderId = 1;
+  string userId = 2;
+  double amount = 3;
+  string status = 4;
+}
+
+message CreatePaymentReq {
+  Payment payment = 1;
+}
+
+message CreatePaymentRes {
+  string id = 1;
+}
+
+message GetPaymentReq {
+  string id = 1;
+}
+
+message GetPaymentRes {
+  Payment payment = 1;
+}
+
+message CancelPaymentReq {
+  string id = 1;
+}
+
+message cancelPaymentRes {
+  string id = 1 ;
+}

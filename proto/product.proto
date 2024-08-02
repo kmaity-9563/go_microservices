@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package product;
+
+option go_package = "github.com/kmaity-9563/shopping-app/proto/productpb";
+
+service ProductService {
+  rpc createProduct(CreateProductReq) returns (CreateProductRes);
+  rpc getProduct(GetProductReq) returns (GetProductRes);
+  rpc updateProduct(UpdateProductReq) returns (UpdateProductRes);
+  rpc deleteProduct(DeleteProductReq) returns (DeleteProductRes);
+}
+
+message Product {
+  string name = 1;
+  string description = 2;
+  string price = 3;
+  string id = 4;
+}
+
+message CreateProductReq {
+  Product product = 1;
+} 
+
+message CreateProductRes {
+  string id = 1;
+} 
+
+message GetProductReq {
+  string id = 1;
+} 
+
+message GetProductRes {
+  Product product = 1;
+} 
+
+message UpdateProductReq {
+  Product product = 1;
+} 
+
+message UpdateProductRes {
+  string id = 1;
+}
+
+message DeleteProductReq {
+  string id = 1;
+} 
+
+message DeleteProductRes {
+  string id = 1 ;
+}

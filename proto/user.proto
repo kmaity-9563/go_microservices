@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "github.com/kmaity-9563/shopping-app/proto/userpb";
+
+service UserService {
+  rpc createUser(CreateUserReq) returns (CreateUserRes);
+  rpc getUser(GetUserReq) returns (GetUserRes);
+  rpc updateUser(UpdateUserReq) returns (UpdateUserRes);
+  rpc deleteUser(DeleteUserReq) returns (DeleteUserRes);
+}
+
+message User {
+  string name = 1;
+  string email = 2;
+  string password = 3;
+  string id = 4;
+}
+
+message CreateUserReq {
+  User user = 1;
+}
+
+message CreateUserRes {
+  string userId = 1;
+}
+
+message GetUserReq {
+  string userId = 1;
+}
+
+message GetUserRes {
+  User user = 1;
+}
+
+message UpdateUserReq {
+  User user = 1;
+}
+
+message UpdateUserRes {
+  string user = 1;
+}
+
+message DeleteUserReq {
+  string userId = 1;
+}
+
+message DeleteUserRes {
+  string userId = 1 ;
+}
